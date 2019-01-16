@@ -34,3 +34,5 @@
   end
   t = Array.new(8) {Array.new(8){"a"}}
   p move([0,0],t)
+
+  

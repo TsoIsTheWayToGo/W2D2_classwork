@@ -29,13 +29,15 @@ class Display
     # puts "Move the cursor: A-S-W-D"
     # build_row
    board.grid.each_with_index do |row,i|
-      row.each_with_index do |el, j|
+    print row.each_with_index do |el, j|
         if [i,j] == cursor.cursor_pos
-         print ":x"
+          ":x"
+        elsif board.grid[i][j] == NullPiece.instance
+           "  "
         else
-         print "| |" if board.grid[i][j].nil?
+           board.grid[i][j].symbol
         end
-      end 
+      end
    end
   end
   
@@ -43,8 +45,11 @@ end
 
 if __FILE__ == $PROGRAM_NAME
    d = Display.new 
+   d.board.populate
    100.times do
+
    d.render
    d.cursor.get_input
    end
 end
+

@@ -42,20 +42,23 @@ module SlidingPiece
 end
 
 
-class Rook < Piece 
-  def move_dirs 
-    horizontal_dirs 
-  end 
-end 
+# class Rook < Piece 
+#   include Slidingpiece
+#   def move_dirs 
+#     horizontal_dirs 
+#   end 
+# end 
 
-class Bishop < Piece 
-  def move_dirs 
-    diogonal_dirs 
-  end 
-end 
+# class Bishop < Piece 
+#   include Slidingpiece
+#   def move_dirs 
+#     diogonal_dirs 
+#   end 
+# end 
 
-class Queen < Piece 
-  def move_dirs 
-    diogonal_dirs + horizontal_dirs
-  end 
-end 
+# class Queen < Piece 
+#   include Slidingpiece
+#   def move_dirs 
+#     diogonal_dirs + horizontal_dirs
+#   end 
+# end 

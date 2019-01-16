@@ -1,11 +1,13 @@
+require "./steppingpiece"
+require "./slidingpiece"
 class Piece
 
   attr_reader :name
 
-  def initialize(type,color)
-    @type = type
+  def initialize(name,color,pos)
+    @name = name
     @color = color
-    #@start_pos = start_pos
+    @pos = pos
   end
 
   def to_s
@@ -16,23 +18,25 @@ end
 
 class Knight < Piece
   include SteppingPiece
+  attr_reader :symbol
   
   def initialize(name,color,pos)
-    super
+    
     @pos = pos
     @symbol = "♞"
   end
 
   def move_dirs(pos,grid)
-    super(pos,grid)
+   
   end
 end
 
 
 class Rook < Piece 
-
+  include SlidingPiece
+  attr_reader :symbol
   def initialize(name,color,pos)
-    super
+    
     @pos = pos
     @symbol = "♜"
   end
@@ -43,8 +47,10 @@ class Rook < Piece
 end 
 
 class Bishop < Piece 
+  include SlidingPiece
+  attr_reader :symbol
   def initialize(name,color,pos)
-    super
+    
     @pos = pos
     @symbol = "♝"
   end
@@ -55,8 +61,10 @@ class Bishop < Piece
 end 
 
 class Queen < Piece 
+  include SlidingPiece
+  attr_reader :symbol
 def initialize(name,color,pos)
-    super
+    
     @pos = pos
     @symbol = "♕"
   end
@@ -66,8 +74,10 @@ def initialize(name,color,pos)
   end 
 end 
 class King < Piece 
+include SlidingPiece
+attr_reader :symbol
 def initialize(name,color,pos)
-    super
+    
     @pos = pos
     @symbol = "♔"
   end
@@ -77,9 +87,11 @@ def initialize(name,color,pos)
   end 
 end 
 class Pawn < Piece 
+  include SlidingPiece
+  attr_reader :symbol
 def initialize(name,color,pos)
-    super
-    @pos = pos
+    
+    @pos = []
     @symbol = "♔"
   end
 
